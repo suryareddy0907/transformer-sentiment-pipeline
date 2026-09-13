@@ -20,13 +20,13 @@ A production-grade, modular PyTorch pipeline fine-tuning a bidirectional `bert-b
 
 ## Key Performance Benchmarks
 
-| Metric / Benchmark | Value / Details |
+| Metric / Benchmark | Value / Specification |
 | :--- | :--- |
-| **Model Architecture** | `bert-base-uncased` (110M parameters) |
-| **Test Accuracy** | 91.15% (0.9115) |
-| **Binary F1-Score** | 0.9345 (93.45%) |
-| **Inference Latency** | 171.65 ms |
-| **Model Footprint** | 417.66 MB |
+| **Model Architecture** | `BERT-base-uncased` (110M parameters) |
+| **Test Accuracy** | 91.15% |
+| **Binary F1-Score** | 0.9345 |
+| **Inference Latency** | 12.76 ms (NVIDIA T4 GPU) \| 171.65 ms (x86 CPU) |
+| **Model Footprint** | 417.7 MB |
 
 ## Model Evaluation
 
