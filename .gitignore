@@ -1,1 +1,8 @@
-README.md
+__pycache__/
+*.csv
+*.bin
+*.pt
+.ipynb_checkpoints/
+.env
+venv/
+.vscode/
