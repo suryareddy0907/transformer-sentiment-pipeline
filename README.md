@@ -5,18 +5,40 @@ A production-grade, modular PyTorch pipeline fine-tuning a bidirectional `bert-b
 ## Project Architecture & Structure
 
 ```text
-├── data_preprocessing.py  # Dataset loading, neutral-class filtering, and tokenization pipeline
-├── train.py               # BERT-base model initialization, training loop, and evaluation
-├── inference.py           # Single-sequence inference and latency benchmarking script
-├── requirements.txt       # Environment dependencies
-└── README.md              # Project documentation
+├── assets/
+│   ├── confusion_matrix.png                   # Visual confusion matrix of validation predictions
+│   └── metrics.json                           # Serialized evaluation metrics and benchmark stats
+├── notebooks/
+│   └── Transformation_Sentiment_Pipeline.ipynb      # Interactive prototyping, EDA, and metrics exploration
+├── data_preprocessing.py                      # Dataset loading, neutral-class filtering, and tokenization pipeline
+├── train.py                                   # BERT-base model initialization and training loop
+├── evaluate.py                                # Comprehensive model evaluation, metrics calculation, and artifact generation
+├── inference.py                               # Single-sequence inference and latency benchmarking script
+├── requirements.txt                           # Environment dependencies
+└── README.md                                  # Project documentation
 ```
+
+## Key Performance Benchmarks
+
+| Metric / Benchmark | Value / Details |
+| :--- | :--- |
+| **Model Architecture** | `bert-base-uncased` (110M parameters) |
+| **Test Accuracy** | 91.15% (0.9115) |
+| **Binary F1-Score** | 0.9345 (93.45%) |
+| **Inference Latency** | 171.65 ms |
+| **Model Footprint** | 417.66 MB |
+
+## Model Evaluation
+
+The fine-tuned BERT model was evaluated on a held-out validation dataset to assess classification performance across positive and negative financial market sentiments:
+
+![Confusion Matrix](assets/confusion_matrix.png)
 
 ## Quickstart & Setup
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/financial-sentiment-pipeline.git](https://github.com/YOUR_USERNAME/financial-sentiment-pipeline.git)
+   git clone https://github.com/YOUR_USERNAME/financial-sentiment-pipeline.git
    cd financial-sentiment-pipeline
    ```
 
@@ -31,7 +53,13 @@ A production-grade, modular PyTorch pipeline fine-tuning a bidirectional `bert-b
    python train.py
    ```
 
-4. **Benchmark Inference Latency:**
+4. **Evaluate Model & Generate Artifacts:**
+   ```bash
+   python evaluate.py
+   ```
+   *Runs model evaluation on the validation split and exports `assets/confusion_matrix.png` and `assets/metrics.json`.*
+
+5. **Benchmark Inference Latency:**
    ```bash
    python inference.py
    ```

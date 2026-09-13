@@ -1,0 +1,8 @@
+{
+    "accuracy": 0.9115,
+    "precision": 0.9449,
+    "recall": 0.9245,
+    "f1_score": 0.9345,
+    "inference_latency_ms": 171.65,
+    "model_footprint_mb": 417.66
+}
